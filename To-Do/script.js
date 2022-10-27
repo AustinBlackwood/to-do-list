@@ -3,21 +3,32 @@ function addToDo(){
     input=document.getElementById('noteInput').value;
     if(input.length > 0){
         toDoItem = document.createElement("div");
+        checkBox = document.createElement("input");
+        checkBox.type= "checkbox";
+        checkBox.classList.add("check-box")
         toDoItem.classList.add("to-do-item");
-        newText = document.createTextNode(input);
-        toDoItem.appendChild(newText);
+        toDoText = document.createElement("textarea");
+        toDoText.classList.add("to-do-text")
+        toDoText.setAttribute("maxlength","60");
+        toDoText.innerText = input;
+        toDoItem.appendChild(checkBox);
+        toDoItem.appendChild(toDoText);
     
-        deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-button");
-        deleteButton.innerText = "Done!";
-        deleteButton.addEventListener('click', function deleteToDo(event) {
-            event.target.parentElement.remove();
-        })
-    
+
+        createDeleteButton();
         toDoItem.appendChild(deleteButton);
         document.getElementsByClassName('container')[0].appendChild(toDoItem);
         document.getElementById('noteInput').value = "";
     }
+}
+
+function createDeleteButton(){
+    deleteButton = document.createElement("button");
+    deleteButton.classList.add("delete-button");
+    deleteButton.innerText = "X";
+    deleteButton.addEventListener('click', function deleteToDo(event) {
+        event.target.parentElement.remove();
+    })
 }
 
 function prepKeyPress(){

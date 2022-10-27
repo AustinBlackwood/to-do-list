@@ -4,6 +4,7 @@
     --accent-text-color: rgb(177, 219, 191);
     --border: 2px solid rgb(0, 0, 0);
     --radius: 2px;
+    --scale: 1.5;
 }
 
 *{
@@ -28,6 +29,8 @@ body{
     padding:10px;
     display: flex;
     margin-bottom:50px;
+    position:fixed;
+    width: 100%;
 }
 #portfolio-link{
     color: var(--accent-text-color);
@@ -42,6 +45,7 @@ body{
     gap: 20px;
 }
 #header{
+    margin-top: 12vh;
     font-size: 5em;
     margin-bottom: 10vh;
 }
@@ -72,13 +76,36 @@ body{
     justify-content: space-between;
     align-items: center;
     font-size: large;
-    width: 500px;
+    width: 620px;
     border-radius: var(--radius);
+}
+
+.check-box{
+    height: 30px;
+    width: 30px;
+}
+
+.check-box:checked{
+    accent-color: var(--accent-text-color);
+    }
+
+.check-box:hover{
+    scale: var(--scale);
+}
+
+.to-do-text{
+    
+    width: 500px;
+    height: 32px;
+    resize: none;
+    font-size: larger;
+    padding: 5px;
 }
 
 .delete-button{
     border: 0;
     background-color: var(--accent-text-color);
     border-radius: 5px;
-    width: 100px;
+    width: 30px;
+    height: 30px;
 }
