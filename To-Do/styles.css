@@ -58,6 +58,7 @@ body{
     border-radius: 3px;
     resize:none;
     font-size: 1.5em;
+    padding: 2px
 }
 #add-button{
     border: 0;
@@ -70,12 +71,14 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: large;
     width: 500px;
-    height: 50px;
-    background-color: var(--accent-text-color);
     border-radius: var(--radius);
 }
 
 .delete-button{
-    
+    border: 0;
+    background-color: var(--accent-text-color);
+    border-radius: 5px;
+    width: 100px;
 }

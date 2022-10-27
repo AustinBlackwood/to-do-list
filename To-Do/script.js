@@ -2,10 +2,10 @@
 function addToDo(){
     input=document.getElementById('noteInput').value;
     if(input.length > 0){
-        newDiv = document.createElement("div");
-        newDiv.classList.add("to-do-item");
+        toDoItem = document.createElement("div");
+        toDoItem.classList.add("to-do-item");
         newText = document.createTextNode(input);
-        newDiv.appendChild(newText);
+        toDoItem.appendChild(newText);
     
         deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
@@ -14,8 +14,23 @@ function addToDo(){
             event.target.parentElement.remove();
         })
     
-        newDiv.appendChild(deleteButton);
-        document.getElementsByClassName('container')[0].appendChild(newDiv);
+        toDoItem.appendChild(deleteButton);
+        document.getElementsByClassName('container')[0].appendChild(toDoItem);
         document.getElementById('noteInput').value = "";
     }
 }
+
+function prepKeyPress(){
+    input=document.getElementById('noteInput');
+    input.addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("add-button").click();
+        }
+    })
+};
+
+window.onload = prepKeyPress;
