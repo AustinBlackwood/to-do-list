@@ -58,23 +58,36 @@ body{
 }
 #noteInput{
     height: 45px;
-    width: 500px;
+    width: 550px;
     border: var(--border);
     flex: 3;
     border-radius: 3px;
     resize:none;
     font-size: 1.5em;
-    padding: 5px
+    padding: 7px
 }
 #add-button{
     border: 0;
     background-color: var(--accent-text-color);
     border-radius: 5px;
-    width: 100px;
+    width: 80px;
     border: var(--border);
 }
 
 #add-button:hover{
+    scale: var(--scale);
+    cursor: pointer;
+}
+
+#delete-all-button{
+    border: 0;
+    background-color: var(--accent-text-color);
+    border-radius: 5px;
+    width: 80px;
+    border: var(--border);
+}
+
+#delete-all-button:hover{
     scale: var(--scale);
     cursor: pointer;
 }
@@ -105,7 +118,7 @@ body{
 
 .to-do-text{
     width: 500px;
-    height: 32px;
+    height: 40px;
     resize: none;
     font-size: larger;
     padding: 5px;

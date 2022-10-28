@@ -22,6 +22,13 @@ function addToDo(){
     }
 }
 
+function deleteAllToDos(){
+    toDoItems = document.getElementsByClassName('to-do-item');
+    for(let i = toDoItems.length-1; i > -1; i--) {
+        toDoItems[i].remove();
+    }
+}
+
 function createDeleteButton(){
     deleteButton = document.createElement("button");
     deleteButton.classList.add("delete-button");
