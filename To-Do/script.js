@@ -1,31 +1,28 @@
 
 function addToDo(){
-    input=document.getElementById('noteInput').value;
+    input=document.getElementsByClassName('input-bar')[0].value;
     if(input.length > 0){
         toDoItem = document.createElement("div");
         checkBox = document.createElement("input");
-        checkBox.type= "checkbox";
-        checkBox.classList.add("check-box")
-        toDoItem.classList.add("to-do-item");
         toDoText = document.createElement("textarea");
+
+        checkBox.type= "checkbox";
+
+        toDoItem.classList.add("to-do-item");
+        checkBox.classList.add("check-box")
         toDoText.classList.add("to-do-text")
-        toDoText.setAttribute("maxlength","60");
+        
+        toDoText.setAttribute("maxlength","45");
         toDoText.innerText = input;
+
         toDoItem.appendChild(checkBox);
         toDoItem.appendChild(toDoText);
-    
 
         createDeleteButton();
+
         toDoItem.appendChild(deleteButton);
         document.getElementsByClassName('container')[0].appendChild(toDoItem);
-        document.getElementById('noteInput').value = "";
-    }
-}
-
-function deleteAllToDos(){
-    toDoItems = document.getElementsByClassName('to-do-item');
-    for(let i = toDoItems.length-1; i > -1; i--) {
-        toDoItems[i].remove();
+        document.getElementsByClassName('input-bar')[0].value='';
     }
 }
 
@@ -38,14 +35,22 @@ function createDeleteButton(){
     })
 }
 
+
+function deleteAllToDos(){
+    toDoItems = document.getElementsByClassName('to-do-item');
+    console.log(toDoItems);
+    for(let i = toDoItems.length-1; i > -1; i--) {
+        console.log(toDoItems[0]);
+        toDoItems[i].remove();
+    }
+}
+
+//Allows enter key to add a to-do
 function prepKeyPress(){
-    input=document.getElementById('noteInput');
+    input=document.getElementsByClassName('input-bar')[0];
+    console.log(input);
     input.addEventListener("keypress", function(event) {
-        // If the user presses the "Enter" key on the keyboard
         if (event.key === "Enter") {
-        // Cancel the default action, if needed
-        event.preventDefault();
-        // Trigger the button element with a click
         document.getElementById("add-button").click();
         }
     })
