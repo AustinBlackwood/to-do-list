@@ -46,18 +46,12 @@ function deleteAllToDos(){
     prepKeyPress();
 }
 
-function saveToDos(){
-    localStorage.currentSave = document.getElementsByClassName('container')[0].outerHTML;
-    console.log(localStorage.currentSave);
-}
-
 function loadSavedToDos(){
     let currentSave = localStorage.currentSave;
     if(currentSave == undefined){
         return;
     }
     const container = document.getElementsByClassName('container')[0];
-    console.log(currentSave);
     container.outerHTML=currentSave;
 }
 
