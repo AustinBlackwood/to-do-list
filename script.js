@@ -68,7 +68,8 @@ function prepKeyPress(){
 };
 
 function loadSavedToDos(){
-
+    prepKeyPress();
+    
     let currentSave = localStorage.currentSave;
     if(currentSave == undefined){
         return;
@@ -79,7 +80,6 @@ function loadSavedToDos(){
     container.outerHTML=currentSave;
 
     reAddEvents();
-    prepKeyPress();
 }
 
 window.onload = loadSavedToDos;
