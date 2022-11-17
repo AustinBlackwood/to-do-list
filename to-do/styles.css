@@ -1,0 +1,123 @@
+/* || SITEWIDE */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    word-wrap: break-word;
+}
+
+nav{
+    background-color: var(--accent-color);
+    padding:10px;
+    display: flex;
+    margin-bottom:50px;
+    position:fixed;
+    width: 100%;
+}
+
+a{
+    color: var(--accent-text-color);
+    text-decoration: none;
+    font-size: large;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.container{
+    flex-direction: column;
+}
+
+h1{
+    margin-top: 12vh;
+    font-size: 5em;
+    margin-bottom: 5vh;
+    color: var(--accent-color);
+}
+
+input{
+    height: 45px;
+    width: 550px;
+    border: var(--border);
+    border-radius: 3px;
+    resize:none;
+    font-size: 1.5em;
+    padding: 7px
+}
+
+button{
+    border: 0;
+    background-color: var(--accent-text-color);
+    border-radius: 5px;
+    width: 80px;
+    height: 45px;
+    border: var(--border);
+}
+
+button:hover{
+    scale: var(--scale);
+    cursor: pointer;
+}
+
+.check-box{
+    height: 45px;
+    width: 45px;
+}
+
+.check-box:checked{
+    accent-color: var(--accent-text-color);
+    }
+
+.check-box:hover{
+    scale: var(--scale);
+    cursor: pointer;
+}
+
+/* || TO-DO PAGE */
+
+:root{
+    --background-color: rgb(255, 255, 255);
+    --accent-color: rgb(19, 27, 33);
+    --accent-text-color: rgb(177, 219, 186);
+    --border: 2px solid rgb(19, 33, 26);
+    --radius: 2px;
+    --scale: 1.1;
+    --to-do-background-image: url(Polygon\ Luminary.svg);
+}
+
+.to-do-body{
+    background-image: var(--to-do-background-image);
+    background-position-x: center;
+    background-attachment: fixed;
+}
+
+.to-do-item{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: large;
+    width: 620px;
+    border-radius: var(--radius);
+}
+
+.to-do-text{
+    width: 500px;
+    height: 40px;
+    resize: none;
+    font-size: larger;
+    padding: 5px;
+    border: var(--border);
+    border-radius: var(--radius);
+    line-height: 17px;
+}
+
