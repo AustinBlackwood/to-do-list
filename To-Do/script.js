@@ -23,6 +23,8 @@ function addToDo(){
         toDoItem.appendChild(deleteButton);
         document.getElementsByClassName('container')[0].appendChild(toDoItem);
         document.getElementsByClassName('input-bar')[0].value='';
+
+        //saves container to local storage
         localStorage.currentSave = document.getElementsByClassName('container')[0].outerHTML;
     }
 }
@@ -36,7 +38,6 @@ function createDeleteButton(){
     })
 }
 
-
 function deleteAllToDos(){
     toDoItems = document.getElementsByClassName('to-do-item');
     for(let i = toDoItems.length-1; i > -1; i--) {
@@ -46,16 +47,17 @@ function deleteAllToDos(){
     prepKeyPress();
 }
 
-function loadSavedToDos(){
-    let currentSave = localStorage.currentSave;
-    if(currentSave == undefined){
-        return;
+//Re-adds event listener to delete buttons when reloading page
+function reAddEvents(){
+    deleteButtons= document.getElementsByClassName('delete-button');
+    for(let i = 0; i<deleteButtons.length; i++){
+        deleteButtons[i].addEventListener('click', function deleteToDo(event) {
+            event.target.parentElement.remove();
+        })
     }
-    const container = document.getElementsByClassName('container')[0];
-    container.outerHTML=currentSave;
 }
 
-//Allows enter key to add a to-do
+//Makes 'enter' key add a to-do
 function prepKeyPress(){
     input=document.getElementsByClassName('input-bar')[0];
     input.addEventListener("keypress", function(event) {
@@ -65,9 +67,19 @@ function prepKeyPress(){
     })
 };
 
-function onPageLoad(){
+function loadSavedToDos(){
+
+    let currentSave = localStorage.currentSave;
+    if(currentSave == undefined){
+        return;
+    }
+    const container = document.getElementsByClassName('container')[0];
+
+    //loads local storage
+    container.outerHTML=currentSave;
+
+    reAddEvents();
     prepKeyPress();
-    loadSavedToDos();
 }
 
-window.onload = onPageLoad;
+window.onload = loadSavedToDos;
