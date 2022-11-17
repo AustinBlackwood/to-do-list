@@ -9,5 +9,6 @@ In all honesty its just a to-do app. Just having some fun! Maybe someone will fi
 
 ### Some unique quirks I learned from this project:
 
-// Event listeners need to be readded on page refresh, they do not stick around.
-// An entire HTML element along with its children can be stored into local storgage as a string with the 'outerhtml' property. This allowed me to load the whole container at once rather than iterating through key/value pairs, appending them to the document separately. . On page load the container is replaced by the one in localstorage.
+1. Event listeners need to be readded on page refresh, they do not stick around.
+
+2. An entire HTML element along with its children can be stored into local storgage as a string with the 'outerhtml' property. This allowed me to load the whole container at once rather than iterating through key/value pairs, appending them to the document separately. . On page load the container is replaced by the one in localstorage.
