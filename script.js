@@ -1,6 +1,5 @@
-
 function addToDo(){
-    input=document.getElementsByClassName('input-bar')[0].value;
+    input=document.getElementsByClassName('to-do-input')[0].value;
     if(input.length > 0){
         toDoItem = document.createElement("div");
         checkBox = document.createElement("input");
@@ -21,20 +20,21 @@ function addToDo(){
         createDeleteButton();
 
         toDoItem.appendChild(deleteButton);
-        document.getElementsByClassName('container')[0].appendChild(toDoItem);
-        document.getElementsByClassName('input-bar')[0].value='';
+        document.getElementsByClassName('to-do-container')[0].appendChild(toDoItem);
+        document.getElementsByClassName('to-do-input')[0].value='';
 
         //saves container to local storage
-        localStorage.currentSave = document.getElementsByClassName('container')[0].outerHTML;
+        localStorage.currentSave = document.getElementsByClassName('to-do-container')[0].outerHTML;
     }
 }
 
 function createDeleteButton(){
     deleteButton = document.createElement("button");
-    deleteButton.classList.add("delete-button");
+    deleteButton.classList.add("to-do-delete-button");
     deleteButton.innerText = "X";
     deleteButton.addEventListener('click', function deleteToDo(event) {
         event.target.parentElement.remove();
+        localStorage.currentSave = document.getElementsByClassName('to-do-container')[0].outerHTML;
     })
 }
 
@@ -49,31 +49,31 @@ function deleteAllToDos(){
 
 //Re-adds event listener to delete buttons when reloading page
 function reAddEvents(){
-    deleteButtons= document.getElementsByClassName('delete-button');
+    deleteButtons= document.getElementsByClassName('to-do-delete-button');
     for(let i = 0; i<deleteButtons.length; i++){
         deleteButtons[i].addEventListener('click', function deleteToDo(event) {
             event.target.parentElement.remove();
+            localStorage.currentSave = document.getElementsByClassName('to-do-container')[0].outerHTML;
         })
     }
 }
 
 //Makes 'enter' key add a to-do
 function prepKeyPress(){
-    input=document.getElementsByClassName('input-bar')[0];
+    input=document.getElementsByClassName('to-do-input')[0];
     input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
-        document.getElementById("add-button").click();
+        document.getElementById("to-do-add-button").click();
         }
     })
 };
 
 function loadSavedToDos(){
-
     let currentSave = localStorage.currentSave;
     if(currentSave == undefined){
         return;
     }
-    const container = document.getElementsByClassName('container')[0];
+    const container = document.getElementsByClassName('to-do-container')[0];
 
     //loads local storage
     container.outerHTML=currentSave;
