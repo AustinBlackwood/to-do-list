@@ -121,7 +121,8 @@
     padding: 5px;
     border: var(--border);
     border-radius: var(--radius);
-    line-height: 17px;
+    line-height: 25px;
+    max-lines: 1;
 }
 
 @media only screen and (max-width: 750px) {
