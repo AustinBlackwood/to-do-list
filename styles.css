@@ -1,10 +1,9 @@
 /* || SITEWIDE */
 
 :root{
-    --background-color: rgb(255, 255, 255);
-    --accent-color: rgb(19, 27, 33);
-    --accent-text-color: rgb(177, 219, 186);
-    --border: 2px solid rgb(19, 33, 26);
+    --accent-color: rgb(63, 60, 81);
+    --accent-text-color: rgb(188, 255, 204);
+    --border: 2px solid rgb(102, 176, 139);
     --radius: 2px;
     --scale: 1.1;
     --to-do-background-image: url(Polygon\ Luminary.svg);
@@ -22,8 +21,6 @@
     align-items: center;
 }
 
-
-
 /* ||SPECIFIC PAGE: TO-DO */
 
 .to-do-body{
@@ -31,22 +28,24 @@
     background-image: var(--to-do-background-image);
     background-position-x: center;
     background-attachment: fixed;
+    background-color: var(--accent-color);
 }
 
 .to-do-nav{
-    background-color: var(--accent-color);
-    padding:10px;
-    display: flex;
-    margin-bottom:50px;
+    padding:15px;
     position:fixed;
-    width: 100%;
+    width: 130px;
     z-index: 1;
+    color: var(--accent-color);
+    background-color: var(--accent-text-color);
+    text-align:right;
 }
 
 .to-do-link{
-    color: var(--accent-text-color);
+    color: var(--accent-color);
     text-decoration: none;
     font-size: large;
+    font-weight: 700;
 }
 
 .to-do-flex{
@@ -63,7 +62,7 @@
     margin-top: 12vh;
     font-size: 5em;
     margin-bottom: 5vh;
-    color: var(--accent-color);
+    color: var(--accent-text-color);
 }
 
 .to-do-input{
@@ -85,7 +84,7 @@
     border: var(--border);
 }
 
-#to-do-add-button:hover, #to-do-delete-all-button:hover, .to-do-delete-button{
+#to-do-add-button:hover, #to-do-delete-all-button:hover, .to-do-delete-button:hover{
     scale: var(--scale);
     cursor: pointer;
 }
@@ -126,10 +125,22 @@
     max-lines: 1;
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 1000px) {
     .to-do-input{
         width: 80%;
         margin-top: 60px;
+    }
+
+    .to-do-nav{
+        width: 100%;
+        text-align: left;
+        background-color: var(--accent-color);
+        padding: 15px;
+    }
+
+    .to-do-link{
+        color: var(--accent-text-color);
+        font-size: medium;
     }
 
     .to-do-h1{
@@ -139,9 +150,11 @@
         font-size: 1.5em;
         font-weight: 500;
         margin-top: 0;
-        top: 7px;
+        top: 9px;
         right: 5%;
+        font-weight: 700;
     }
+
     .to-do-body{
         padding-bottom: 25%;
         background-size: 400%;
@@ -161,7 +174,9 @@
 
     #to-do-add-button{
         right: 0%;
+        z-index: 1;
     }
+
 
     #to-do-add-button{
         position: fixed;
@@ -182,5 +197,10 @@
     .check-box{
         height: 50px;
         width: 100px;
+    }
+  }
+  @media only screen and (max-width: 260px) {
+    .to-do-h1{
+        display: none;
     }
   }
