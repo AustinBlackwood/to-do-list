@@ -1,5 +1,5 @@
 function addToDo(){
-    input=document.getElementsByClassName('to-do-input')[0].value;
+    input=document.getElementsByClassName('todo-input')[0].value;
     if(input.length > 0){
         toDoItem = document.createElement("div");
         checkBox = document.createElement("input");
@@ -7,9 +7,9 @@ function addToDo(){
 
         checkBox.type= "checkbox";
 
-        toDoItem.classList.add("to-do-item");
+        toDoItem.classList.add("todo-item");
         checkBox.classList.add("check-box")
-        toDoText.classList.add("to-do-text")
+        toDoText.classList.add("todo-text")
         
         toDoText.setAttribute("maxlength","45");
         toDoText.innerText = input;
@@ -20,26 +20,26 @@ function addToDo(){
         createDeleteButton();
 
         toDoItem.appendChild(deleteButton);
-        document.getElementsByClassName('to-do-container')[0].appendChild(toDoItem);
-        document.getElementsByClassName('to-do-input')[0].value='';
+        document.getElementsByClassName('todo-container')[0].appendChild(toDoItem);
+        document.getElementsByClassName('todo-input')[0].value='';
 
         //saves container to local storage
-        localStorage.currentSave = document.getElementsByClassName('to-do-container')[0].outerHTML;
+        localStorage.currentSave = document.getElementsByClassName('todo-container')[0].outerHTML;
     }
 }
 
 function createDeleteButton(){
     deleteButton = document.createElement("button");
-    deleteButton.classList.add("to-do-delete-button");
+    deleteButton.classList.add("todo-delete-button");
     deleteButton.innerText = "X";
     deleteButton.addEventListener('click', function deleteToDo(event) {
         event.target.parentElement.remove();
-        localStorage.currentSave = document.getElementsByClassName('to-do-container')[0].outerHTML;
+        localStorage.currentSave = document.getElementsByClassName('todo-container')[0].outerHTML;
     })
 }
 
 function deleteAllToDos(){
-    toDoItems = document.getElementsByClassName('to-do-item');
+    toDoItems = document.getElementsByClassName('todo-item');
     for(let i = toDoItems.length-1; i > -1; i--) {
         toDoItems[i].remove();
     }
@@ -49,21 +49,21 @@ function deleteAllToDos(){
 
 //Re-adds event listener to delete buttons when reloading page
 function reAddEvents(){
-    deleteButtons= document.getElementsByClassName('to-do-delete-button');
+    deleteButtons= document.getElementsByClassName('todo-delete-button');
     for(let i = 0; i<deleteButtons.length; i++){
         deleteButtons[i].addEventListener('click', function deleteToDo(event) {
             event.target.parentElement.remove();
-            localStorage.currentSave = document.getElementsByClassName('to-do-container')[0].outerHTML;
+            localStorage.currentSave = document.getElementsByClassName('todo-container')[0].outerHTML;
         })
     }
 }
 
-//Makes 'enter' key add a to-do
+//Makes 'enter' key add a todo
 function prepKeyPress(){
-    input=document.getElementsByClassName('to-do-input')[0];
+    input=document.getElementsByClassName('todo-input')[0];
     input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
-        document.getElementById("to-do-add-button").click();
+        document.getElementById("todo-add-button").click();
         }
     })
 };
@@ -73,7 +73,7 @@ function loadSavedToDos(){
     if(currentSave == undefined){
         return;
     }
-    const container = document.getElementsByClassName('to-do-container')[0];
+    const container = document.getElementsByClassName('todo-container')[0];
 
     //loads local storage
     container.outerHTML=currentSave;
