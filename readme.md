@@ -5,7 +5,7 @@
 Sometimes you just need to take down a quick note that locally saves to your browser.
 This incredibly innovative webapp (which has never been done before) is a to-do list that saves to-dos to your browsers storage.
 
-In all honesty its just a to-do app. Just having some fun! Maybe someone will find it useful.
+In all honesty its just a to-do app. I hope someone will find it useful!
 
 ### Some unique quirks I learned from this project:
 
